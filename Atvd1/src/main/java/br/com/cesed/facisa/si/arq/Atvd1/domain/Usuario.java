@@ -1,14 +1,17 @@
 package br.com.cesed.facisa.si.arq.Atvd1.domain;
 
+import br.com.cesed.facisa.si.arq.Atvd1.domain.Conta;
+
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
 
 import lombok.Data;
 
@@ -24,10 +27,14 @@ public class Usuario implements Serializable{
 	
 	private String nome;
 	
-	private Conta conta;
-	
 	@OneToMany
 	private List<Conta> contas = new ArrayList<Conta>();
+	
+	public Usuario(Integer id, String nome) {
+		super();
+		this.id = id;
+		this.nome = nome;
+	}
 
 	@Override
 	public int hashCode() {
@@ -54,6 +61,5 @@ public class Usuario implements Serializable{
 		return true;
 	}
 	
-	
-	
+
 }
